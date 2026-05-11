@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal da Escola</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Ícones do Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Portal da Escola</h1>
+
+    <div class="cards">
+      <a href="#" class="card" onclick="abrirMensagem('Secretaria')">
+        <i class="fas fa-file-alt"></i>
+        <h2>Secretaria</h2>
+      </a>
+
+      <a href="#" class="card" onclick="abrirMensagem('Direção')">
+        <i class="fas fa-user-tie"></i>
+        <h2>Direção</h2>
+      </a>
+
+      <a href="#" class="card" onclick="abrirMensagem('Estoque')">
+        <i class="fas fa-boxes-stacked"></i>
+        <h2>Estoque</h2>
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
