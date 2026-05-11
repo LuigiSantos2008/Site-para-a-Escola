@@ -14,20 +14,16 @@ body {
     align-items: center;
 }
 
+/* Remove o retângulo branco */
 .container {
-    background: rgba(255, 255, 255, 0.85);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: 90%;
-    max-width: 900px;
 }
 
 h1 {
-    margin-bottom: 30px;
-    color: #003366;
-    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: white;
+    font-size: 3em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .cards {
@@ -38,19 +34,19 @@ h1 {
 }
 
 .card {
-    background: #003366;
+    background: rgba(0, 51, 102, 0.9);
     color: white;
     width: 200px;
     padding: 30px 20px;
     border-radius: 15px;
     text-decoration: none;
     transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
 }
 
 .card:hover {
     transform: scale(1.05);
-    background: #0055aa;
+    background: rgba(0, 85, 170, 0.95);
 }
 
 .card i {
