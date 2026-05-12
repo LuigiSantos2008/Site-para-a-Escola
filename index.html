@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal da Escola</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Ícones -->
+  <!-- Font Awesome -->
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+  <div class="overlay"></div>
 
   <div class="container">
-    <h1>Portal da Escola</h1>
+    <header class="hero">
+      <h1>Portal da Escola</h1>
+      <p>Gerencie informações da secretaria, direção e estoque escolar.</p>
+    </header>
 
-    <div class="cards">
+    <section class="cards">
       <div class="card" onclick="mostrarInfo('secretaria')">
-        <i class="fas fa-file-alt"></i>
+        <i class="fas fa-file-lines"></i>
         <h2>Secretaria</h2>
+        <p>Emails, telefones, status de alunos e gastos.</p>
       </div>
 
       <div class="card" onclick="mostrarInfo('direcao')">
         <i class="fas fa-user-tie"></i>
         <h2>Direção</h2>
+        <p>Notas, faltas e acompanhamento escolar.</p>
       </div>
 
       <div class="card" onclick="mostrarInfo('estoque')">
         <i class="fas fa-boxes-stacked"></i>
         <h2>Estoque</h2>
+        <p>Produtos de limpeza e alimentos disponíveis.</p>
       </div>
-    </div>
+    </section>
 
-    <!-- Área onde as informações aparecerão -->
-    <div id="info" class="info-box"></div>
+    <section id="info" class="info-box"></section>
   </div>
 
   <script src="script.js"></script>

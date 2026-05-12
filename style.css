@@ -2,76 +2,122 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
+    font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
     background: url('fundo.jpg') no-repeat center center;
     background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
+    position: relative;
+    padding: 40px 20px;
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 25, 60, 0.85),
+        rgba(0, 70, 140, 0.65)
+    );
+    z-index: 0;
 }
 
 .container {
-    text-align: center;
-    max-width: 1000px;
-    width: 100%;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: auto;
 }
 
-h1 {
-    margin-bottom: 40px;
-    color: rgb(0, 0, 0);
-    font-size: 3em;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+.hero {
+    text-align: center;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #ffffff;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.95;
 }
 
 .cards {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    flex-wrap: wrap;
 }
 
 .card {
-    background: rgba(0, 51, 102, 0.9);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 24px;
+    padding: 35px 30px;
     color: white;
-    width: 220px;
-    padding: 30px 20px;
-    border-radius: 15px;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    transition: all 0.35s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
 }
 
 .card:hover {
-    transform: scale(1.05);
-    background: rgba(0, 85, 170, 0.95);
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
+    background: rgba(255, 255, 255, 0.18);
 }
 
 .card i {
-    font-size: 50px;
-    margin-bottom: 15px;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #FFD700;
 }
 
 .card h2 {
-    font-size: 1.5em;
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+}
+
+.card p {
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .info-box {
     margin-top: 40px;
-    background: rgba(255, 255, 255, 0.92);
-    padding: 30px;
-    border-radius: 15px;
-    text-align: left;
     display: none;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    line-height: 1.8;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 35px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    line-height: 1.9;
+    color: #333;
 }
 
 .info-box h2 {
     color: #003366;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.info-box p {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .card {
+        padding: 30px 25px;
+    }
 }

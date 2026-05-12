@@ -1,32 +1,37 @@
 function mostrarInfo(setor) {
     const info = document.getElementById("info");
 
-    if (setor === "secretaria") {
-        info.innerHTML = `
-            <h2>Secretaria</h2>
-            <p><strong>Gmail Institucional:</strong> dos alunos</p>
-            <p><strong>Telefone dos responsáveis</strong></p>
-            <p><strong>Status do Aluno:</strong> Exemplo, se faltou ou se está de atestado</p>
-            <p><strong>Status do Professor:</strong> Exemplo, se está afastado ou se está de atestado</p>
-            <p><strong>Gastos</strong></p>
-        `;
-    }
+    const dados = {
+        secretaria: `
+            <h2>📄 Secretaria</h2>
+            <p><strong>Gmail Institucional:</strong> aluno@escola.com</p>
+            <p><strong>Telefone dos Responsáveis:</strong> (38) 99999-9999</p>
+            <p><strong>Status do Aluno:</strong> Presente, faltou ou está de atestado.</p>
+            <p><strong>Status do Professor:</strong> Em aula, afastado ou de licença.</p>
+            <p><strong>Gastos:</strong> Material escolar, manutenção e eventos.</p>
+        `,
 
-    if (setor === "direcao") {
-        info.innerHTML = `
-            <h2>Direção</h2>
-            <p><strong>Notas e faltas</strong></p>
-        `;
-    }
+        direcao: `
+            <h2>🎓 Direção</h2>
+            <p><strong>Notas:</strong> Matemática 9,0 | Português 8,5</p>
+            <p><strong>Faltas:</strong> 3 faltas no bimestre.</p>
+            <p><strong>Desempenho:</strong> Excelente rendimento escolar.</p>
+        `,
 
-    if (setor === "estoque") {
-        info.innerHTML = `
-            <h2>Estoque</h2>
-            <p>Quantos produtos de limpeza tem na escola.</p>
-            <p>Quantos kg de comida:
-            arroz, feijão, carne, frutas, farinha e leite em pó.</p>
-        `;
-    }
+        estoque: `
+            <h2>📦 Estoque</h2>
+            <p><strong>Produtos de Limpeza:</strong> 10 detergentes, 15 águas sanitárias.</p>
+            <p><strong>Alimentos:</strong> 50 kg de arroz, 20 kg de feijão, 30 kg de carne.</p>
+            <p><strong>Frutas:</strong> Banana, maçã e laranja.</p>
+            <p><strong>Leite em Pó:</strong> 12 pacotes.</p>
+        `
+    };
 
+    info.innerHTML = dados[setor];
     info.style.display = "block";
+
+    info.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
 }
