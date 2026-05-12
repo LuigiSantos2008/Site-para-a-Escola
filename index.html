@@ -5,44 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portal da Escola</title>
 
+  <!-- Arquivo CSS -->
   <link rel="stylesheet" href="style.css" />
 
-  <!-- Font Awesome -->
+  <!-- Ícones Font Awesome -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
+
+  <!-- Escurece a imagem de fundo -->
   <div class="overlay"></div>
 
   <div class="container">
+
+    <!-- Cabeçalho -->
     <header class="hero">
       <h1>Portal da Escola</h1>
-      <p>Gerencie informações da secretaria, direção e estoque escolar.</p>
+      <p>Sistema de gerenciamento da Secretaria, Direção e Estoque.</p>
     </header>
 
+    <!-- Cards -->
     <section class="cards">
       <div class="card" onclick="mostrarInfo('secretaria')">
         <i class="fas fa-file-lines"></i>
         <h2>Secretaria</h2>
-        <p>Emails, telefones, status de alunos e gastos.</p>
       </div>
 
       <div class="card" onclick="mostrarInfo('direcao')">
         <i class="fas fa-user-tie"></i>
         <h2>Direção</h2>
-        <p>Notas, faltas e acompanhamento escolar.</p>
       </div>
 
       <div class="card" onclick="mostrarInfo('estoque')">
         <i class="fas fa-boxes-stacked"></i>
         <h2>Estoque</h2>
-        <p>Produtos de limpeza e alimentos disponíveis.</p>
       </div>
     </section>
 
+    <!-- Área de informações -->
     <section id="info" class="info-box"></section>
+
   </div>
 
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 </html>
