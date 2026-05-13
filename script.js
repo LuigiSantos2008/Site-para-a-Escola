@@ -5,7 +5,7 @@ function mostrarInfo(setor) {
         secretaria: `
             <h2>📄 Secretaria</h2>
             <p><strong>Gmail Institucional:</strong> aluno@escola.com</p>
-            <p><strong>Telefone dos Responsáveis:</strong> (38) 99999-9999</p>
+            <p><strong>Telefone dos Responsáveis:</strong> (38) 991020-3040</p>
             <p><strong>Status do Aluno:</strong> Presente, faltou ou está de atestado.</p>
             <p><strong>Status do Professor:</strong> Em aula, afastado ou de licença médica.</p>
             <p><strong>Gastos:</strong> Material escolar, manutenção e eventos.</p>
