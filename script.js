@@ -241,11 +241,22 @@ function abrirNotas() {
 function abrirFundamental() {
 
     const materias = [
-        "Matemática",
-        "Português",
-        "Ciências",
-        "História",
-        "Geografia"
+        "Língua Portuguesa",
+    "Língua Inglesa",
+    "Arte",
+    "Educação Física",
+    "Matemática",
+    "Ciências",
+    "Geografia",
+    "História",
+    "Ensino Religioso",
+    "Atividades Integradoras",
+    "Clube de Protagonismo",
+    "Estudos Orientados",
+    "Práticas Experimentais",
+    "Nivelamento em Matemática",
+    "Nivelamento em Língua Portuguesa",
+    "Corpo e Movimento"
     ];
 
     let html = `
