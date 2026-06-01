@@ -10,26 +10,36 @@
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
 
+</head>
 <body>
 
 <div class="overlay"></div>
 
 <div class="container">
 
-    <h1>Portal Escolar</h1>
+<h1>Portal Escolar</h1>
 
-    <div id="menuPrincipal">
+<div id="menuPrincipal" class="cards">
 
-        <div class="card" onclick="abrirDirecao()">
-            <i class="fas fa-user-tie"></i>
-            <h2>Direção</h2>
-        </div>
+<div class="card" onclick="abrirDirecao()">
+<i class="fas fa-user-tie"></i>
+<h2>Direção</h2>
+</div>
 
-    </div>
+<div class="card" onclick="abrirSecretaria()">
+<i class="fas fa-file-lines"></i>
+<h2>Secretaria</h2>
+</div>
 
-    <div id="conteudo"></div>
+<div class="card" onclick="abrirEstoque()">
+<i class="fas fa-boxes-stacked"></i>
+<h2>Estoque</h2>
+</div>
+
+</div>
+
+<div id="conteudo"></div>
 
 </div>
 
