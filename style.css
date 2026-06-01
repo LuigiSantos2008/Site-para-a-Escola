@@ -2,18 +2,19 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Segoe UI, sans-serif;
+font-family:'Segoe UI',sans-serif;
 }
 
 body{
 min-height:100vh;
 background:url("fundo.jpg") center/cover;
+overflow-x:hidden;
 }
 
 .overlay{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.7);
+background:rgba(0,0,0,.75);
 }
 
 .container{
@@ -27,22 +28,26 @@ padding:40px;
 h1{
 text-align:center;
 color:#FFD700;
-font-size:50px;
+font-size:60px;
 margin-bottom:50px;
 }
+
+/* MENU */
 
 .cards{
 display:flex;
 justify-content:center;
+align-items:center;
 gap:30px;
 flex-wrap:wrap;
 }
 
 .card{
-width:300px;
+width:320px;
 height:220px;
 
 background:rgba(255,255,255,.1);
+
 backdrop-filter:blur(10px);
 
 border:1px solid rgba(255,255,255,.2);
@@ -56,9 +61,9 @@ align-items:center;
 
 cursor:pointer;
 
-color:white;
-
 transition:.3s;
+
+color:white;
 }
 
 .card:hover{
@@ -67,9 +72,11 @@ transform:translateY(-8px);
 
 .card i{
 font-size:70px;
-color:#FFD700;
 margin-bottom:20px;
+color:#FFD700;
 }
+
+/* PÁGINAS */
 
 .pagina{
 background:white;
@@ -92,15 +99,14 @@ margin-bottom:20px;
 background:#0055aa;
 }
 
-.abas{
+.botoes{
 display:flex;
 gap:15px;
-margin-top:20px;
-margin-bottom:20px;
 flex-wrap:wrap;
+margin-top:20px;
 }
 
-.abas button{
+.botoes button{
 background:#003366;
 color:white;
 border:none;
@@ -109,17 +115,18 @@ border-radius:10px;
 cursor:pointer;
 }
 
-.abas button:hover{
+.botoes button:hover{
 background:#0055aa;
 }
 
-.turmas{
+.grade{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(100px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
 gap:10px;
+margin-top:20px;
 }
 
-.turma{
+.item-btn{
 background:#003366;
 color:white;
 padding:15px;
@@ -128,7 +135,7 @@ text-align:center;
 cursor:pointer;
 }
 
-.turma:hover{
+.item-btn:hover{
 background:#0055aa;
 }
 

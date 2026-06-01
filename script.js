@@ -1,205 +1,317 @@
-function voltar() {
-    document.getElementById("menuPrincipal").style.display = "flex";
-    document.getElementById("conteudo").innerHTML = "";
+const app = document.getElementById("app");
+
+function voltarInicio(){
+
+app.innerHTML = `
+
+<div class="cards">
+
+    <div class="card" onclick="abrirDirecao()">
+        <i class="fas fa-user-tie"></i>
+        <h2>Direção</h2>
+    </div>
+
+    <div class="card" onclick="abrirSecretaria()">
+        <i class="fas fa-file-lines"></i>
+        <h2>Secretaria</h2>
+    </div>
+
+    <div class="card" onclick="abrirEstoque()">
+        <i class="fas fa-boxes-stacked"></i>
+        <h2>Estoque</h2>
+    </div>
+
+</div>
+
+`;
 }
 
-function abrirDirecao() {
+/* DIREÇÃO */
 
-    document.getElementById("menuPrincipal").style.display = "none";
+function abrirDirecao(){
 
-    document.getElementById("conteudo").innerHTML = `
-        <div class="pagina">
+app.innerHTML = `
 
-            <button class="voltar" onclick="voltar()">
-                ← Voltar
-            </button>
+<div class="pagina">
 
-            <h2>Direção</h2>
+<button class="voltar"
+onclick="voltarInicio()">
+← Voltar
+</button>
 
-            <div class="abas">
+<h2>Direção</h2>
 
-                <button onclick="mostrarAlunos()">
-                    👨‍🎓 Alunos
-                </button>
+<div class="botoes">
 
-                <button onclick="mostrarProfessores()">
-                    👨‍🏫 Professores
-                </button>
+<button onclick="abrirAlunos()">
+👨‍🎓 Alunos
+</button>
 
-                <button onclick="mostrarNotas()">
-                    📚 Notas
-                </button>
+<button onclick="abrirProfessores()">
+👨‍🏫 Professores
+</button>
 
-            </div>
+<button onclick="abrirNotas()">
+📚 Notas
+</button>
 
-            <div id="painel"></div>
+</div>
 
-        </div>
-    `;
+</div>
+
+`;
 }
 
-function abrirSecretaria() {
+/* ALUNOS */
 
-    document.getElementById("menuPrincipal").style.display = "none";
+function abrirAlunos(){
 
-    document.getElementById("conteudo").innerHTML = `
-        <div class="pagina">
+const turmas = [
+"61","62",
+"71","72",
+"81","82",
+"91","92",
+"1EM","2EM","3EM"
+];
 
-            <button class="voltar" onclick="voltar()">
-                ← Voltar
-            </button>
+let html = `
 
-            <h2>Secretaria</h2>
+<div class="pagina">
 
-            <div class="item">Gmail institucional dos alunos</div>
-            <div class="item">Telefone dos responsáveis</div>
-            <div class="item">Documentação escolar</div>
-            <div class="item">Matrículas e transferências</div>
+<button class="voltar"
+onclick="abrirDirecao()">
+← Voltar
+</button>
 
-        </div>
-    `;
+<h2>Turmas</h2>
+
+<div class="grade">
+`;
+
+turmas.forEach(turma=>{
+
+html += `
+<div class="item-btn"
+onclick="abrirTurma('${turma}')">
+${turma}
+</div>
+`;
+
+});
+
+html += `
+</div>
+</div>
+`;
+
+app.innerHTML = html;
 }
 
-function abrirEstoque() {
+/* TURMA */
 
-    document.getElementById("menuPrincipal").style.display = "none";
+function abrirTurma(turma){
 
-    document.getElementById("conteudo").innerHTML = `
-        <div class="pagina">
+let html = `
 
-            <button class="voltar" onclick="voltar()">
-                ← Voltar
-            </button>
+<div class="pagina">
 
-            <h2>Estoque</h2>
+<button class="voltar"
+onclick="abrirAlunos()">
+← Voltar
+</button>
 
-            <div class="item">Arroz - 50kg</div>
-            <div class="item">Feijão - 30kg</div>
-            <div class="item">Carne - 25kg</div>
-            <div class="item">Produtos de Limpeza - 100 unidades</div>
+<h2>Turma ${turma}</h2>
 
-        </div>
-    `;
+<div class="lista">
+`;
+
+for(let i=1;i<=20;i++){
+
+html += `
+
+<div class="item">
+
+<strong>Aluno ${i}</strong>
+
+<br>
+
+aluno${i}@escola.com
+
+<br><br>
+
+<select>
+<option>Bom comportamento</option>
+<option>Médio</option>
+<option>Ruim</option>
+<option>Faltou</option>
+<option>Recuperação</option>
+<option>Atestado</option>
+</select>
+
+</div>
+
+`;
 }
 
-function mostrarAlunos() {
+html += `
+</div>
+</div>
+`;
 
-    const turmas = [
-        "61","62","71","72",
-        "81","82","91","92",
-        "1EM","2EM","3EM"
-    ];
-
-    let html = `
-        <h3>Turmas</h3>
-        <div class="turmas">
-    `;
-
-    turmas.forEach(turma => {
-
-        html += `
-            <div class="turma"
-            onclick="abrirTurma('${turma}')">
-                ${turma}
-            </div>
-        `;
-    });
-
-    html += `</div>`;
-
-    document.getElementById("painel").innerHTML = html;
+app.innerHTML = html;
 }
 
-function abrirTurma(turma) {
+/* PROFESSORES */
 
-    let html = `
-        <h3>Turma ${turma}</h3>
-        <div class="lista">
-    `;
+function abrirProfessores(){
 
-    for(let i=1; i<=20; i++) {
+let html = `
 
-        html += `
-        <div class="item">
+<div class="pagina">
 
-            <strong>Aluno ${i}</strong>
+<button class="voltar"
+onclick="abrirDirecao()">
+← Voltar
+</button>
 
-            <br>
+<h2>Professores</h2>
 
-            aluno${i}@escola.com
+<div class="lista">
+`;
 
-            <br>
+for(let i=1;i<=20;i++){
 
-            <select>
-                <option>Bom comportamento</option>
-                <option>Médio</option>
-                <option>Ruim</option>
-                <option>Faltou</option>
-                <option>Recuperação</option>
-                <option>Atestado</option>
-            </select>
+html += `
 
-        </div>
-        `;
-    }
+<div class="item">
 
-    html += `</div>`;
+<strong>Professor ${i}</strong>
 
-    document.getElementById("painel").innerHTML = html;
+<br>
+
+professor${i}@escola.com
+
+<br><br>
+
+<select>
+<option>Em aula</option>
+<option>Atestado</option>
+<option>Afastado</option>
+</select>
+
+</div>
+
+`;
 }
 
-function mostrarProfessores() {
+html += `
+</div>
+</div>
+`;
 
-    let html = `
-        <h3>Professores</h3>
-        <div class="lista">
-    `;
-
-    for(let i=1; i<=20; i++) {
-
-        html += `
-        <div class="item">
-
-            <strong>Professor ${i}</strong>
-
-            <br>
-
-            professor${i}@escola.com
-
-            <br>
-
-            <select>
-                <option>Em aula</option>
-                <option>Atestado</option>
-                <option>Afastado</option>
-            </select>
-
-        </div>
-        `;
-    }
-
-    html += `</div>`;
-
-    document.getElementById("painel").innerHTML = html;
+app.innerHTML = html;
 }
 
-function mostrarNotas() {
+/* NOTAS */
 
-    document.getElementById("painel").innerHTML = `
-        <div class="lista">
+function abrirNotas(){
 
-            <div class="item">
-                João Silva - Matemática: 8,5
-            </div>
+app.innerHTML = `
 
-            <div class="item">
-                Maria Souza - Português: 9,0
-            </div>
+<div class="pagina">
 
-            <div class="item">
-                Pedro Lima - História: 7,5
-            </div>
+<button class="voltar"
+onclick="abrirDirecao()">
+← Voltar
+</button>
 
-        </div>
-    `;
+<h2>Notas</h2>
+
+<div class="item">
+João Silva - Matemática: 8,5
+</div>
+
+<div class="item">
+Maria Souza - Português: 9,0
+</div>
+
+<div class="item">
+Pedro Lima - História: 7,5
+</div>
+
+</div>
+
+`;
+}
+
+/* SECRETARIA */
+
+function abrirSecretaria(){
+
+app.innerHTML = `
+
+<div class="pagina">
+
+<button class="voltar"
+onclick="voltarInicio()">
+← Voltar
+</button>
+
+<h2>Secretaria</h2>
+
+<div class="item">
+📧 Gmail Institucional
+</div>
+
+<div class="item">
+📞 Telefones dos Responsáveis
+</div>
+
+<div class="item">
+📋 Matrículas
+</div>
+
+<div class="item">
+📂 Documentação Escolar
+</div>
+
+</div>
+
+`;
+}
+
+/* ESTOQUE */
+
+function abrirEstoque(){
+
+app.innerHTML = `
+
+<div class="pagina">
+
+<button class="voltar"
+onclick="voltarInicio()">
+← Voltar
+</button>
+
+<h2>Estoque</h2>
+
+<div class="item">
+Arroz - 50kg
+</div>
+
+<div class="item">
+Feijão - 30kg
+</div>
+
+<div class="item">
+Carne - 25kg
+</div>
+
+<div class="item">
+Produtos de Limpeza - 100 unidades
+</div>
+
+</div>
+
+`;
 }
