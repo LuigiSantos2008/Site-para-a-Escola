@@ -1,74 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portal Escolar Profissional</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<title>Portal Escolar</title>
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
+
 <body>
 
 <div class="overlay"></div>
 
 <div class="container">
 
-  <!-- TOPO -->
-  <header class="hero">
     <h1>Portal Escolar</h1>
-    <p>Sistema profissional de gerenciamento escolar</p>
-  </header>
 
-  <!-- MENU -->
-  <section class="cards">
+    <div id="menuPrincipal">
 
-    <div class="card" onclick="abrirDirecao()">
-      <i class="fas fa-user-tie"></i>
-      <h2>Direção</h2>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-file-lines"></i>
-      <h2>Secretaria</h2>
-    </div>
-
-    <div class="card">
-      <i class="fas fa-boxes-stacked"></i>
-      <h2>Estoque</h2>
-    </div>
-
-  </section>
-
-  <!-- DIREÇÃO -->
-  <section id="direcaoBox" class="painel">
-
-    <div class="menu-interno">
-
-      <button onclick="mostrarSecao('alunos')">
-        <i class="fas fa-user-graduate"></i>
-        Alunos
-      </button>
-
-      <button onclick="mostrarSecao('professores')">
-        <i class="fas fa-chalkboard-user"></i>
-        Professores
-      </button>
-
-      <button onclick="mostrarSecao('notas')">
-        <i class="fas fa-book"></i>
-        Notas
-      </button>
+        <div class="card" onclick="abrirDirecao()">
+            <i class="fas fa-user-tie"></i>
+            <h2>Direção</h2>
+        </div>
 
     </div>
 
-    <!-- ÁREA -->
     <div id="conteudo"></div>
-
-  </section>
 
 </div>
 

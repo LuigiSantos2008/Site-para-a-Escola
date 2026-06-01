@@ -1,135 +1,171 @@
-const turmas = [
-    "61","62",
-    "71","72",
-    "81","82",
-    "91","92",
-    "1EM","2EM","3EM"
-];
-
 function abrirDirecao(){
-    document.getElementById("direcaoBox").style.display = "block";
+
+document.getElementById("conteudo").innerHTML = `
+
+<div class="abas">
+
+<button onclick="mostrarAlunos()">
+<i class="fas fa-user-graduate"></i>
+ Alunos
+</button>
+
+<button onclick="mostrarProfessores()">
+<i class="fas fa-chalkboard-user"></i>
+ Professores
+</button>
+
+<button onclick="mostrarNotas()">
+<i class="fas fa-book"></i>
+ Notas
+</button>
+
+</div>
+
+<div id="painel"></div>
+
+`;
+
 }
 
-function mostrarSecao(secao){
+function mostrarAlunos(){
 
-    const conteudo = document.getElementById("conteudo");
+const turmas = [
+"61","62",
+"71","72",
+"81","82",
+"91","92",
+"1EM","2EM","3EM"
+];
 
-    // ALUNOS
-    if(secao === "alunos"){
+let html = `
+<h2>Turmas</h2>
 
-        let html = `
-        <h2>Turmas</h2>
+<div class="turmas">
+`;
 
-        <div class="turmas">
-        `;
+turmas.forEach(turma=>{
 
-        turmas.forEach(turma=>{
-            html += `
-            <div class="turma"
-            onclick="abrirTurma('${turma}')">
-            ${turma}
-            </div>
-            `;
-        });
+html += `
+<div class="turma"
+onclick="abrirTurma('${turma}')">
+${turma}
+</div>
+`;
 
-        html += `</div>`;
+});
 
-        conteudo.innerHTML = html;
-    }
+html += `
+</div>
+`;
 
-    // PROFESSORES
-    if(secao === "professores"){
-
-        conteudo.innerHTML = `
-
-        <h2>Professores</h2>
-
-        <div class="aluno">
-            <h3>Professor Carlos</h3>
-
-            <div class="status">
-                Status:
-                <select>
-                    <option>Em aula</option>
-                    <option>Atestado</option>
-                    <option>Afastado</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="aluno">
-            <h3>Professora Ana</h3>
-
-            <div class="status">
-                Status:
-                <select>
-                    <option>Em aula</option>
-                    <option>Atestado</option>
-                    <option>Afastado</option>
-                </select>
-            </div>
-        </div>
-
-        `;
-    }
-
-    // NOTAS
-    if(secao === "notas"){
-
-        conteudo.innerHTML = `
-
-        <h2>Notas</h2>
-
-        <div class="aluno">
-            <h3>João Silva</h3>
-            <p>Matemática: 8.5</p>
-            <p>Português: 7.0</p>
-            <p>História: 9.0</p>
-        </div>
-
-        `;
-    }
+document.getElementById("painel").innerHTML = html;
 
 }
 
 function abrirTurma(turma){
 
-    const conteudo = document.getElementById("conteudo");
+let html = `
+<div class="lista">
 
-    let html = `
-    <h2>Turma ${turma}</h2>
-    `;
+<h2>Turma ${turma}</h2>
+`;
 
-    for(let i=1;i<=20;i++){
+for(let i=1;i<=20;i++){
 
-        html += `
+html += `
 
-        <div class="aluno">
+<div class="item">
 
-            <h3>Aluno ${i}</h3>
+<b>Aluno ${i}</b>
 
-            <p>Email:
-            aluno${i}@escola.com
-            </p>
+<br>
 
-            <div class="status">
+aluno${i}@escola.com
 
-                Status:
-                <select>
-                    <option>Bom comportamento</option>
-                    <option>Médio</option>
-                    <option>Ruim</option>
-                    <option>Faltou</option>
-                    <option>Recuperação</option>
-                    <option>Atestado</option>
-                </select>
+<br><br>
 
-            </div>
+<select>
+<option>Bom comportamento</option>
+<option>Médio</option>
+<option>Ruim</option>
+<option>Faltou</option>
+<option>Recuperação</option>
+<option>Atestado</option>
+</select>
 
-        </div>
+</div>
 
-        `;
-    }
+`;
 
-    conteudo.innerHTML = html;
+}
+
+html += `</div>`;
+
+document.getElementById("painel").innerHTML = html;
+
+}
+
+function mostrarProfessores(){
+
+let html = `
+<div class="lista">
+<h2>Professores</h2>
+`;
+
+for(let i=1;i<=20;i++){
+
+html += `
+
+<div class="item">
+
+<b>Professor ${i}</b>
+
+<br>
+
+professor${i}@escola.com
+
+<br><br>
+
+<select>
+<option>Em aula</option>
+<option>Atestado</option>
+<option>Afastado</option>
+</select>
+
+</div>
+
+`;
+
+}
+
+html += `</div>`;
+
+document.getElementById("painel").innerHTML = html;
+
+}
+
+function mostrarNotas(){
+
+let html = `
+<div class="lista">
+
+<h2>Notas</h2>
+
+<div class="item">
+Aluno 1 - Matemática: 8,5
+</div>
+
+<div class="item">
+Aluno 2 - Português: 9,0
+</div>
+
+<div class="item">
+Aluno 3 - História: 7,5
+</div>
+
+</div>
+`;
+
+document.getElementById("painel").innerHTML = html;
+
 }
