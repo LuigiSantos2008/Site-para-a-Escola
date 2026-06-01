@@ -1,54 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal da Escola</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Escolar Profissional</title>
 
-  <!-- Arquivo CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 
-  <!-- Ícones Font Awesome -->
+  <!-- Font Awesome -->
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-  <!-- Escurece a imagem de fundo -->
-  <div class="overlay"></div>
+<div class="overlay"></div>
 
-  <div class="container">
+<div class="container">
 
-    <!-- Cabeçalho -->
-    <header class="hero">
-      <h1>Portal da Escola</h1>
-      <p>Sistema de gerenciamento da Secretaria, Direção e Estoque.</p>
-    </header>
+  <!-- TOPO -->
+  <header class="hero">
+    <h1>Portal Escolar</h1>
+    <p>Sistema profissional de gerenciamento escolar</p>
+  </header>
 
-    <!-- Cards -->
-    <section class="cards">
-      <div class="card" onclick="mostrarInfo('secretaria')">
-        <i class="fas fa-file-lines"></i>
-        <h2>Secretaria</h2>
-      </div>
+  <!-- MENU -->
+  <section class="cards">
 
-      <div class="card" onclick="mostrarInfo('direcao')">
-        <i class="fas fa-user-tie"></i>
-        <h2>Direção</h2>
-      </div>
+    <div class="card" onclick="abrirDirecao()">
+      <i class="fas fa-user-tie"></i>
+      <h2>Direção</h2>
+    </div>
 
-      <div class="card" onclick="mostrarInfo('estoque')">
-        <i class="fas fa-boxes-stacked"></i>
-        <h2>Estoque</h2>
-      </div>
-    </section>
+    <div class="card">
+      <i class="fas fa-file-lines"></i>
+      <h2>Secretaria</h2>
+    </div>
 
-    <!-- Área de informações -->
-    <section id="info" class="info-box"></section>
+    <div class="card">
+      <i class="fas fa-boxes-stacked"></i>
+      <h2>Estoque</h2>
+    </div>
 
-  </div>
+  </section>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+  <!-- DIREÇÃO -->
+  <section id="direcaoBox" class="painel">
+
+    <div class="menu-interno">
+
+      <button onclick="mostrarSecao('alunos')">
+        <i class="fas fa-user-graduate"></i>
+        Alunos
+      </button>
+
+      <button onclick="mostrarSecao('professores')">
+        <i class="fas fa-chalkboard-user"></i>
+        Professores
+      </button>
+
+      <button onclick="mostrarSecao('notas')">
+        <i class="fas fa-book"></i>
+        Notas
+      </button>
+
+    </div>
+
+    <!-- ÁREA -->
+    <div id="conteudo"></div>
+
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>

@@ -1,41 +1,135 @@
-function mostrarInfo(setor) {
-    const info = document.getElementById("info");
+const turmas = [
+    "61","62",
+    "71","72",
+    "81","82",
+    "91","92",
+    "1EM","2EM","3EM"
+];
 
-    const dados = {
-        secretaria: `
-            <h2>📄 Secretaria</h2>
-            <p><strong>Gmail Institucional:</strong> aluno@escola.com</p>
-            <p><strong>Telefone dos Responsáveis:</strong> (38) 991020-3040</p>
-            <p><strong>Status do Aluno:</strong> Presente, faltou ou está de atestado.</p>
-            <p><strong>Status do Professor:</strong> Em aula, afastado ou de licença médica.</p>
-            <p><strong>Gastos:</strong> Material escolar, manutenção e eventos.</p>
-        `,
+function abrirDirecao(){
+    document.getElementById("direcaoBox").style.display = "block";
+}
 
-        direcao: `
-            <h2>🎓 Direção</h2>
-            <p><strong>Notas:</strong> Matemática 9,0 | Português 8,5 | História 10,0</p>
-            <p><strong>Faltas:</strong> 3 faltas no bimestre.</p>
-            <p><strong>Desempenho:</strong> Excelente rendimento escolar.</p>
-            <p><strong>Observações:</strong> Aluno destaque da turma.</p>
-        `,
+function mostrarSecao(secao){
 
-        estoque: `
-            <h2>📦 Estoque</h2>
-            <p><strong>Produtos de Limpeza:</strong> 10 detergentes, 15 águas sanitárias e 8 desinfetantes.</p>
-            <p><strong>Arroz:</strong> 50 kg</p>
-            <p><strong>Feijão:</strong> 20 kg</p>
-            <p><strong>Carne:</strong> 30 kg</p>
-            <p><strong>Frutas:</strong> Banana, maçã e laranja.</p>
-            <p><strong>Farinha:</strong> 25 kg</p>
-            <p><strong>Leite em Pó:</strong> 12 pacotes</p>
-        `
-    };
+    const conteudo = document.getElementById("conteudo");
 
-    info.innerHTML = dados[setor];
-    info.style.display = "block";
+    // ALUNOS
+    if(secao === "alunos"){
 
-    info.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+        let html = `
+        <h2>Turmas</h2>
+
+        <div class="turmas">
+        `;
+
+        turmas.forEach(turma=>{
+            html += `
+            <div class="turma"
+            onclick="abrirTurma('${turma}')">
+            ${turma}
+            </div>
+            `;
+        });
+
+        html += `</div>`;
+
+        conteudo.innerHTML = html;
+    }
+
+    // PROFESSORES
+    if(secao === "professores"){
+
+        conteudo.innerHTML = `
+
+        <h2>Professores</h2>
+
+        <div class="aluno">
+            <h3>Professor Carlos</h3>
+
+            <div class="status">
+                Status:
+                <select>
+                    <option>Em aula</option>
+                    <option>Atestado</option>
+                    <option>Afastado</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="aluno">
+            <h3>Professora Ana</h3>
+
+            <div class="status">
+                Status:
+                <select>
+                    <option>Em aula</option>
+                    <option>Atestado</option>
+                    <option>Afastado</option>
+                </select>
+            </div>
+        </div>
+
+        `;
+    }
+
+    // NOTAS
+    if(secao === "notas"){
+
+        conteudo.innerHTML = `
+
+        <h2>Notas</h2>
+
+        <div class="aluno">
+            <h3>João Silva</h3>
+            <p>Matemática: 8.5</p>
+            <p>Português: 7.0</p>
+            <p>História: 9.0</p>
+        </div>
+
+        `;
+    }
+
+}
+
+function abrirTurma(turma){
+
+    const conteudo = document.getElementById("conteudo");
+
+    let html = `
+    <h2>Turma ${turma}</h2>
+    `;
+
+    for(let i=1;i<=20;i++){
+
+        html += `
+
+        <div class="aluno">
+
+            <h3>Aluno ${i}</h3>
+
+            <p>Email:
+            aluno${i}@escola.com
+            </p>
+
+            <div class="status">
+
+                Status:
+                <select>
+                    <option>Bom comportamento</option>
+                    <option>Médio</option>
+                    <option>Ruim</option>
+                    <option>Faltou</option>
+                    <option>Recuperação</option>
+                    <option>Atestado</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        `;
+    }
+
+    conteudo.innerHTML = html;
 }
