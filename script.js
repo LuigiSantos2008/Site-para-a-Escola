@@ -417,53 +417,31 @@ function abrirMateriaMedio(materia) {
 ========================= */
 
 function abrirNotasTurma(materia, turma) {
+function abrirNotas() {
 
-    let html = `
+    app.innerHTML = `
     <div class="pagina">
 
-        <button class="voltar" onclick="abrirNotas()">
+        <button class="voltar" onclick="abrirDirecao()">
             ← Voltar
         </button>
 
-        <h2>${materia} - Turma ${turma}</h2>
+        <h2>Notas</h2>
 
-        <div class="lista">
-    `;
+        <div class="grade">
 
-    for (let i = 1; i <= 20; i++) {
+            <div class="item-btn" onclick="abrirFundamental()">
+                📚 Ensino Fundamental
+            </div>
 
-        html += `
-        <div class="item">
+            <div class="item-btn" onclick="abrirMedio()">
+                🎓 Ensino Médio
+            </div>
 
-            <strong>Aluno ${i}</strong>
-
-            <br>
-
-            aluno${i}@escola.com
-
-            <br><br>
-
-            Nota:
-
-            <input
-                type="number"
-                min="0"
-                max="10"
-                step="0.1"
-                value="0">
-
-        </div>
-        `;
-    }
-
-    html += `
         </div>
     </div>
     `;
-
-    app.innerHTML = html;
-}
-
+]
 /* =========================
    SECRETARIA
 ========================= */
