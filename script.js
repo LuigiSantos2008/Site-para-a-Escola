@@ -374,32 +374,68 @@ function abrirMedio() {
     app.innerHTML = html;
 }
 
-function abrirMateriaMedio(materia) {
+function abrirMedio() {
 
-    const turmas = [
-        "1EM",
-        "2EM",
-        "3EM"
+    const materias = [
+
+        "Língua Portuguesa",
+        "Educação Física",
+        "Arte",
+        "Língua Inglesa",
+
+        "Matemática",
+
+        "Física",
+        "Química",
+        "Biologia",
+
+        "Geografia",
+        "História",
+        "Sociologia",
+        "Filosofia",
+
+        "Projeto de Vida",
+        "Eletiva",
+        "Estudos Orientados",
+        "Práticas Experimentais",
+        "Nivelamento Língua Portuguesa",
+        "Nivelamento Matemática",
+        "Introdução ao Correios Social (PICS)",
+        "Cultura Digital e Fundamentos de IA",
+        "Ferramentas para o Mundo do Trabalho",
+        "Prática Profissional e Empreendedora",
+
+        "Banco de Dados",
+        "Algoritmos e Estrutura de Dados",
+        "Arquitetura de Sistemas",
+        "Desenvolvimento Front-End I",
+        "Desenvolvimento Front-End II",
+        "Conceitos Avançados em Arquitetura de Sistemas",
+        "Desenvolvimento de Softwares",
+        "Fundamentos de Segurança de Softwares",
+        "Desenvolvimento Back-End",
+        "Desenvolvimento de Aplicativos"
+
     ];
 
     let html = `
     <div class="pagina">
 
-        <button class="voltar" onclick="abrirMedio()">
+        <button class="voltar" onclick="abrirNotas()">
             ← Voltar
         </button>
 
-        <h2>${materia}</h2>
+        <h2>Ensino Médio</h2>
 
         <div class="grade">
     `;
 
-    turmas.forEach(turma => {
+    materias.forEach(materia => {
 
         html += `
         <div class="item-btn"
-             onclick="abrirNotasTurma('${materia}','${turma}')">
-             ${turma}
+             onclick="abrirMateriaMedio('${materia}')">
+             ${materia}
         </div>
         `;
     });
@@ -411,37 +447,57 @@ function abrirMateriaMedio(materia) {
 
     app.innerHTML = html;
 }
-
 /* =========================
    NOTAS POR TURMA
 ========================= */
 
 function abrirNotasTurma(materia, turma) {
-function abrirNotas() {
 
-    app.innerHTML = `
+    let html = `
     <div class="pagina">
 
-        <button class="voltar" onclick="abrirDirecao()">
+        <button class="voltar" onclick="abrirNotas()">
             ← Voltar
         </button>
 
-        <h2>Notas</h2>
+        <h2>${materia} - Turma ${turma}</h2>
 
-        <div class="grade">
+        <div class="lista">
+    `;
 
-            <div class="item-btn" onclick="abrirFundamental()">
-                📚 Ensino Fundamental
-            </div>
+    for (let i = 1; i <= 20; i++) {
 
-            <div class="item-btn" onclick="abrirMedio()">
-                🎓 Ensino Médio
-            </div>
+        html += `
+        <div class="item">
 
+            <strong>Aluno ${i}</strong>
+
+            <br>
+
+            aluno${i}@escola.com
+
+            <br><br>
+
+            Nota:
+
+            <input
+                type="number"
+                min="0"
+                max="10"
+                step="0.1"
+                value="0">
+
+        </div>
+        `;
+    }
+
+    html += `
         </div>
     </div>
     `;
-]
+
+    app.innerHTML = html;
+}
 /* =========================
    SECRETARIA
 ========================= */
