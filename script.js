@@ -56,6 +56,10 @@ function abrirDirecao() {
                 📚 Notas
             </button>
 
+<button onclick="abrirFaltas()">
+    🚫 Faltas
+</button>
+
         </div>
 
     </div>
@@ -489,6 +493,172 @@ function abrirNotasTurma(materia, turma) {
                 min="0"
                 max="10"
                 step="0.1"
+                value="0">
+
+        </div>
+        `;
+    }
+
+    html += `
+        </div>
+    </div>
+    `;
+
+    app.innerHTML = html;
+}
+
+/* =========================
+   FALTAS
+========================= */
+
+function abrirFaltas() {
+
+    app.innerHTML = `
+    <div class="pagina">
+
+        <button class="voltar" onclick="abrirDirecao()">
+            ← Voltar
+        </button>
+
+        <h2>Faltas</h2>
+
+        <div class="grade">
+
+            <div class="item-btn" onclick="abrirFaltasFundamental()">
+                📚 Ensino Fundamental
+            </div>
+
+            <div class="item-btn" onclick="abrirFaltasMedio()">
+                🎓 Ensino Médio
+            </div>
+
+        </div>
+
+    </div>
+    `;
+}
+
+/* =========================
+   FALTAS FUNDAMENTAL
+========================= */
+
+function abrirFaltasFundamental() {
+
+    const turmas = [
+        "61","62",
+        "71","72",
+        "81","82",
+        "91","92"
+    ];
+
+    let html = `
+    <div class="pagina">
+
+        <button class="voltar" onclick="abrirFaltas()">
+            ← Voltar
+        </button>
+
+        <h2>Ensino Fundamental</h2>
+
+        <div class="grade">
+    `;
+
+    turmas.forEach(turma => {
+
+        html += `
+        <div class="item-btn"
+             onclick="abrirListaFaltas('${turma}')">
+             ${turma}
+        </div>
+        `;
+    });
+
+    html += `
+        </div>
+    </div>
+    `;
+
+    app.innerHTML = html;
+}
+
+/* =========================
+   FALTAS MÉDIO
+========================= */
+
+function abrirFaltasMedio() {
+
+    const turmas = [
+        "1EM",
+        "2EM",
+        "3EM"
+    ];
+
+    let html = `
+    <div class="pagina">
+
+        <button class="voltar" onclick="abrirFaltas()">
+            ← Voltar
+        </button>
+
+        <h2>Ensino Médio</h2>
+
+        <div class="grade">
+    `;
+
+    turmas.forEach(turma => {
+
+        html += `
+        <div class="item-btn"
+             onclick="abrirListaFaltas('${turma}')">
+             ${turma}
+        </div>
+        `;
+    });
+
+    html += `
+        </div>
+    </div>
+    `;
+
+    app.innerHTML = html;
+}
+
+/* =========================
+   ALUNOS E FALTAS
+========================= */
+
+function abrirListaFaltas(turma) {
+
+    let html = `
+    <div class="pagina">
+
+        <button class="voltar" onclick="abrirFaltas()">
+            ← Voltar
+        </button>
+
+        <h2>Turma ${turma}</h2>
+
+        <div class="lista">
+    `;
+
+    for(let i = 1; i <= 20; i++) {
+
+        html += `
+        <div class="item">
+
+            <strong>Aluno ${i}</strong>
+
+            <br>
+
+            aluno${i}@escola.com
+
+            <br><br>
+
+            Faltas:
+
+            <input
+                type="number"
+                min="0"
                 value="0">
 
         </div>
